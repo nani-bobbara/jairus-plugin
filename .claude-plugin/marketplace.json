@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "jairus-plugin",
+  "description": "Marketplace for the jairus agentic micro-SaaS pipeline plugin.",
+  "owner": { "name": "Nani Bobbara" },
+  "plugins": [
+    {
+      "name": "jairus",
+      "source": "./",
+      "category": "development",
+      "tags": ["saas", "nextjs", "neon", "stripe", "vercel", "pipeline"]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "jairus",
+  "version": "0.4.0",
+  "description": "Agentic micro-SaaS control plane for Claude Code: an interview-built INTENT.md, an ordered product backlog, and a project created from the jairus-starter template (starter in place, build proven, environment set up with you in the loop), tracked in .jairus/ so any session can resume. Every domain feature is a plugin on the closed starter core; the design, build and release commands arrive phase by phase. DEV builds locally; QA is GitHub-backed.",
+  "author": { "name": "Nani Bobbara", "email": "nani.bobbara@origence.com" },
+  "homepage": "https://github.com/Nani-Bobbara_CUDL/jairus-plugin",
+  "repository": "https://github.com/Nani-Bobbara_CUDL/jairus-plugin",
+  "license": "UNLICENSED",
+  "keywords": [
+    "saas",
+    "micro-saas",
+    "nextjs",
+    "neon",
+    "postgres",
+    "stripe",
+    "vercel",
+    "starter-template",
+    "plugins",
+    "pipeline",
+    "agentic"
+  ]
+}

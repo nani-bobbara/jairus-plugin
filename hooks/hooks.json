@@ -1,0 +1,39 @@
+{
+  "description": "Jairus hooks: type-check after edits (pnpm workspaces only) and secret scan before git commit/push.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/typecheck.mjs"],
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit *)",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/secret-scan.mjs"],
+            "timeout": 60
+          },
+          {
+            "type": "command",
+            "if": "Bash(git push *)",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/secret-scan.mjs"],
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

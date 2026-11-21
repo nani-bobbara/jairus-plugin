@@ -1,0 +1,5 @@
+{
+  "_comment": "TEMPLATE — copied by bin/prelive.mjs on the first item. What a human still has to supply or decide before something live happens. Items name needs (an env variable by name, an account, a decision), never values. before: develop | qa | deploy. status: open | done | acknowledged (acknowledged needs a note).",
+  "schema": 1,
+  "items": []
+}

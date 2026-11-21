@@ -1,0 +1,25 @@
+{
+  "$comment": "The structured facts of one feature's design (.jairus/features/<feature>/spec.json), written by the designer and checked by bin/check-feature.mjs (rules/design-workflow.md). It holds only what the starter cannot: acceptance criteria and their traceability, the Extension plan, extension requests and each entry point's guard and audit. Naming rules, table classes and RLS are the starter's (definePlugin, db:setup, verify-rls, pnpm gate:core enforce them when the code exists). Narrative lives in PRD.md, DESIGN.md and ADR.md; do not restate these facts there. `point` is a contribution kind of @jairus/plugin-kit (permissions, nav, tables, migrations, emails, jobs, on, env, audit, orgActions, roles, repos, features) or code (the plugin's domain and use-case code), branding, route (route files in the apps), cli. A config card (plugin: null) may only use branding. A need no point can meet goes in extension_plan.requests, never worked around. After develop the developer fills implemented_at (<file>:<line> of the export, with `// AC-n` on or above it) and test_at (a test file that names the criterion).",
+  "schema_version": 1,
+  "feature": "{{feature}}",
+  "plugin": "{{plugin}}",
+  "status": "draft",
+  "acceptance_criteria": [
+    { "id": "AC-1", "text": "Given {{context}}, when {{action}}, then {{observable outcome}}", "implemented_at": null, "test_at": null }
+  ],
+  "extension_plan": {
+    "plugin": "{{plugin}}",
+    "rows": [
+      { "change": "{{domain and use-cases}}", "point": "code", "files": ["plugins/{{plugin}}/src/domain/", "plugins/{{plugin}}/src/application/"], "read": ["plugins/README.md"] },
+      { "change": "{{table, e.g. item table}}", "point": "tables", "files": ["plugins/{{plugin}}/src/manifest.ts"], "read": ["plugins/README.md"] },
+      { "change": "{{its migration}}", "point": "migrations", "files": ["plugins/{{plugin}}/migrations/"], "read": ["plugins/README.md"] },
+      { "change": "{{who may write, e.g. owners and admins}}", "point": "orgActions", "files": ["plugins/{{plugin}}/src/manifest.ts"], "read": ["packages/plugin-kit/README.md"] },
+      { "change": "{{what is audited}}", "point": "audit", "files": ["plugins/{{plugin}}/src/manifest.ts"], "read": ["packages/application/README.md"] },
+      { "change": "{{page and server action}}", "point": "route", "files": ["apps/portal/src/app/(workspace)/{{feature}}/page.tsx", "apps/portal/src/app/(workspace)/{{feature}}/actions.ts"], "read": ["README.md"] }
+    ],
+    "requests": []
+  },
+  "entry_points": [
+    { "name": "create{{Feature}}", "kind": "server-action", "path": "apps/portal/src/app/(workspace)/{{feature}}/actions.ts", "guard": "org guard + {{plugin}}:write", "audit": "{{plugin}}.{{entity}}_created" }
+  ]
+}

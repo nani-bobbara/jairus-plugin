@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "_comment": "Project-level MCP config template — the FIXED server set for the jairus stack (Next.js · Neon · Vercel · GitHub · Stripe). /jairus:ship writes this to the project root as .mcp.json. All servers are remote HTTP + browser OAuth — authorize once with `claude mcp login <server>`; no tokens in this file. Runtime app secrets live in the project's per-app .env.local files (see the starter's .env.example) and are separate from MCP auth. The plugin uses no vendor CLI: these servers are how it reaches each service.",
+  "mcpServers": {
+    "stripe": {
+      "type": "http",
+      "url": "https://mcp.stripe.com"
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "vercel": {
+      "type": "http",
+      "url": "https://mcp.vercel.com"
+    },
+    "neon": {
+      "type": "http",
+      "url": "https://mcp.neon.tech/mcp"
+    }
+  }
+}
